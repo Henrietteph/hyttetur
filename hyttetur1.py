@@ -2,7 +2,7 @@ import streamlit as st
 
 # --- Init Session State ---
 if "players" not in st.session_state:
-    st.session_state.players = {"Henriette"}
+    st.session_state.players = {}
 if "agenda" not in st.session_state:
     st.session_state.agenda = {
         "Fredag": ["15:00 - Ankomst og apertiff", "15:30 - Romfordeling og Agenda", "16:00 - Pynte oss", "17:00 - Quiz", "18:00 - Middag", "20:00 - Skifte til chill", "20:30 - Mimelek", "21:00 - Fritid"],
