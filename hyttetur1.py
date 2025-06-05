@@ -39,12 +39,6 @@ with col_sondag:
         st.write(f"• {item}")
         
 
-# --- Legg til deltaker ---
-new_name = st.text_input("Legg til deltaker")
-if st.button("Legg til"):
-    st.session_state.players[new_name] = 0
-
-
 # --- Vis poengtavle ---
 st.subheader("🏆 Poengtavle")
 if not st.session_state.players:
@@ -63,6 +57,11 @@ else:
             if st.button("-1", key=f"minus_{name}"):
                 st.session_state.players[name] -= 1
 
+
+# --- Legg til deltaker ---
+new_name = st.text_input("Legg til deltaker")
+if st.button("Legg til"):
+    st.session_state.players[new_name] = 0
 # --- Fjern deltaker ---
 #st.subheader("❌ Fjern deltaker")
 #remove_name = st.selectbox("Velg deltaker", [""] + list(st.session_state.players.keys()))
