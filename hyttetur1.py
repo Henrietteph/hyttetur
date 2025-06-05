@@ -40,13 +40,10 @@ with col_sondag:
         
 
 # --- Legg til deltaker ---
-st.subheader("➕ Legg til deltaker")
-new_name = st.text_input("Navn på deltaker")
+new_name = st.text_input("Legg til deltaker")
 if st.button("Legg til"):
-    if new_name and new_name not in st.session_state.players:
-        st.session_state.players[new_name] = 0
-    elif new_name in st.session_state.players:
-        st.warning(f"{new_name} finnes allerede!")
+    st.session_state.players[new_name] = 0
+
 
 # --- Vis poengtavle ---
 st.subheader("🏆 Poengtavle")
