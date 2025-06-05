@@ -13,10 +13,10 @@ if "agenda" not in st.session_state:
 st.set_page_config(page_title="Poengtavle", layout="centered")
 
 # --- Header Image ---
-st.title("🎉 Helgeevent")
-uploaded_image = st.file_uploader("Last opp toppbilde", type=["jpg", "jpeg", "png"])
-if uploaded_image:
-    st.image(uploaded_image, use_column_width=True)
+st.title("Hyttetur")
+#uploaded_image = st.file_uploader("Last opp toppbilde", type=["jpg", "jpeg", "png"])
+#if uploaded_image:
+#    st.image(uploaded_image, use_column_width=True)
 
 # --- Legg til deltaker ---
 st.subheader("➕ Legg til deltaker")
