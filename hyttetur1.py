@@ -15,6 +15,7 @@ st.set_page_config(page_title="Poengtavle", layout="centered")
 
 # --- Header Image ---
 st.markdown("<h1 style='text-align: center;'>🔥Hyttetur🔥</h1>", unsafe_allow_html=True)
+st.markdown(" ")  # én tom linje
 #st.title("🔥Hyttetur🔥")
 #uploaded_image = st.file_uploader("Last opp toppbilde", type=["jpg", "jpeg", "png"])
 #if uploaded_image:
