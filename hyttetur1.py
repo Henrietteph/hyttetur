@@ -21,7 +21,7 @@ st.title("Hyttetur")
 
 # --- Agenda ---
 st.subheader("📅 Agenda")
-col_fredag, col_lordag = st.columns(3)
+col_fredag, col_lordag, col_sondag = st.columns(3)
 
 with col_fredag:
     st.markdown("### Fredag")
