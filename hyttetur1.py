@@ -5,8 +5,8 @@ if "players" not in st.session_state:
     st.session_state.players = {}
 if "agenda" not in st.session_state:
     st.session_state.agenda = {
-        "Fredag": ["15:00 - Ankomst og apertiff", "15:30 - Romfordeling og Agenda", "16:00 - Pynte oss", "17:00 - Quiz", "18:00 - Middag", "20:00 - Skifte til chill", "20:30 - Mimelek", "21:00 - Fritid"],
-        "Lørdag": ["11:00 - Frokost og fyre i stampen", "12:30 - Spele kubb og/eller brettspill", "14:00 - Kortskalle og/eller anna hemmelig leik", "16:00 - Badestamp", "17:00 - Stelle seg", "18:00 - Middag", "19:30 - Ulike leika", "??:?? - Kåring av vinner"],
+        "Fredag": ["15:00 - Ankomst og apertiff", "15:30 - Romfordeling og Agenda", "16:00 - Pynte oss", "17:00 - Quiz", "18:00 - Middag", "20:00 - Skifte til chill", "20:30 - Mimeleik", "21:00 - Fritid"],
+        "Lørdag": ["11:00 - Frokost og fyre i stampen", "12:30 - Spele kubb og/eller brettspill", "14:00 - Kortskalle og/eller anna hemmelig leik", "16:00 - Badestamp", "17:00 - Stelle seg", "18:00 - Middag", "19:30 - Ulike leika", "??:?? - Kåring av vinner🤴"],
         "Søndag": ["11:00 - Frokost", "12:30 - Pakke, rydde, vaske", "??:?? - Chill og avreise"]
     }
 
@@ -14,7 +14,7 @@ if "agenda" not in st.session_state:
 st.set_page_config(page_title="Poengtavle", layout="centered")
 
 # --- Header Image ---
-st.title("Hyttetur")
+st.title("🔥Hyttetur🔥")
 #uploaded_image = st.file_uploader("Last opp toppbilde", type=["jpg", "jpeg", "png"])
 #if uploaded_image:
 #    st.image(uploaded_image, use_column_width=True)
