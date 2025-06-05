@@ -46,11 +46,11 @@ else:
                 st.session_state.players[name] -= 1
 
 # --- Fjern deltaker ---
-st.subheader("❌ Fjern deltaker")
-remove_name = st.selectbox("Velg deltaker", [""] + list(st.session_state.players.keys()))
-if st.button("Fjern"):
-    if remove_name:
-        del st.session_state.players[remove_name]
+#st.subheader("❌ Fjern deltaker")
+#remove_name = st.selectbox("Velg deltaker", [""] + list(st.session_state.players.keys()))
+#if st.button("Fjern"):
+#    if remove_name:
+#        del st.session_state.players[remove_name]
 
 # --- Agenda ---
 st.subheader("📅 Agenda")
