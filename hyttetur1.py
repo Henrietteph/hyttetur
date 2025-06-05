@@ -18,6 +18,21 @@ st.title("Hyttetur")
 #if uploaded_image:
 #    st.image(uploaded_image, use_column_width=True)
 
+# --- Agenda ---
+st.subheader("📅 Agenda")
+col_fredag, col_lordag = st.columns(2)
+
+with col_fredag:
+    st.markdown("### Fredag")
+    for item in st.session_state.agenda["Fredag"]:
+        st.write(f"• {item}")
+
+with col_lordag:
+    st.markdown("### Lørdag")
+    for item in st.session_state.agenda["Lørdag"]:
+        st.write(f"• {item}")
+        
+
 # --- Legg til deltaker ---
 st.subheader("➕ Legg til deltaker")
 new_name = st.text_input("Navn på deltaker")
@@ -52,9 +67,3 @@ else:
 #    if remove_name:
 #        del st.session_state.players[remove_name]
 
-# --- Agenda ---
-st.subheader("📅 Agenda")
-for day, items in st.session_state.agenda.items():
-    st.markdown(f"### {day}")
-    for item in items:
-        st.write(f"• {item}")
