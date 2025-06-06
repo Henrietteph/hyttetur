@@ -1,35 +1,4 @@
 import streamlit as st
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
-
-
-# --- Konfigurer Google Sheets ---
-scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name("creds.json", scope)
-client = gspread.authorize(creds)
-
-# Åpne Google Sheet (pass på at du har delt det med servicekontoen)
-spreadsheet = client.open("scoreboard")  # Endre navn hvis arket heter noe annet
-sheet = spreadsheet.sheet1
-
-# --- Funksjoner for lasting og lagring ---
-def load_players():
-    try:
-        records = sheet.get_all_records()
-        return {row["Navn"]: row["Poeng"] for row in records}
-    except Exception as e:
-        st.error(f"Feil ved lasting fra Google Sheets: {e}")
-        return {}
-
-def save_players(players_dict):
-    try:
-        sheet.clear()
-        sheet.append_row(["Navn", "Poeng"])
-        for name, score in players_dict.items():
-            sheet.append_row([name, score])
-    except Exception as e:
-        st.error(f"Feil ved lagring til Google Sheets: {e}")
-
 
 # --- Init Session State ---
 if "players" not in st.session_state:
@@ -96,10 +65,3 @@ else:
 new_name = st.text_input("Legg til deltaker")
 if st.button("Legg til"):
     st.session_state.players[new_name] = 0
-# --- Fjern deltaker ---
-#st.subheader("❌ Fjern deltaker")
-#remove_name = st.selectbox("Velg deltaker", [""] + list(st.session_state.players.keys()))
-#if st.button("Fjern"):
-#    if remove_name:
-#        del st.session_state.players[remove_name]
-
