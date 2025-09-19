@@ -1,4 +1,5 @@
-import gspread from oauth2client.service_account import ServiceAccountCredentials
+import gspread 
+from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
 import streamlit as st
 
@@ -67,5 +68,6 @@ else:
 new_name = st.text_input("Legg til deltaker")
 if st.button("Legg til"):
     st.session_state.players[new_name] = 0
+
 
 
