@@ -1,14 +1,20 @@
 import streamlit as st
-import gspread
+"""import gspread"""
 from oauth2client.service_account import ServiceAccountCredentials
 
-scope = ["https://spreadsheets.google.com/feeds",
-         "https://www.googleapis.com/auth/drive"]
+from sheets_utils import get_scores, add_score, update_score, delete_score
 
-creds = ServiceAccountCredentials.from_json_keyfile_dict(
-    st.secrets["gcp_service_account"], scope
-)
-client = gspread.authorize(creds)
+# ---- Connect to Google Sheet ----
+def connect_to_sheet(sheet_name: str):
+    scope = ["https://spreadsheets.google.com/feeds",
+             "https://www.googleapis.com/auth/drive"]
+
+    creds = ServiceAccountCredentials.from_json_keyfile_dict(
+        st.secrets["gcp_service_account"], scope
+    )
+    client = gspread.authorize(creds)
+    return client.open(sheet_name).sheet1
+
 
 # --- Init Session State ---
 if "players" not in st.session_state:
@@ -75,6 +81,7 @@ else:
 new_name = st.text_input("Legg til deltaker")
 if st.button("Legg til"):
     st.session_state.players[new_name] = 0
+
 
 
 
