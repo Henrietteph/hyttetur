@@ -1,7 +1,4 @@
 import streamlit as st
-"""import gspread"""
-"""from oauth2client.service_account import ServiceAccountCredentials"""
-"""from sheets_utils import get_scores, add_score, update_score, delete_score"""
 
 # ---- Connect to Google Sheet ----
 def connect_to_sheet(sheet_name: str):
@@ -14,6 +11,7 @@ def connect_to_sheet(sheet_name: str):
     client = gspread.authorize(creds)
     return client.open(sheet_name).sheet1
 
+get_scores(connect_to_sheet);
 
 # --- Init Session State ---
 if "players" not in st.session_state:
@@ -80,6 +78,7 @@ else:
 new_name = st.text_input("Legg til deltaker")
 if st.button("Legg til"):
     st.session_state.players[new_name] = 0
+
 
 
 
