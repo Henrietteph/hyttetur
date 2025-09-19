@@ -11,7 +11,9 @@ def connect_to_sheet(sheet_name: str):
     client = gspread.authorize(creds)
     return client.open(sheet_name).sheet1
 
-sheet = connect_to_sheet("scoreboard");
+# ---- App start ----
+SHEET_NAME = "Scoreboard"  # sett navnet på regnearket
+sheet = connect_to_sheet(SHEET_NAME)
 
 # --- Init Session State ---
 if "players" not in st.session_state:
@@ -78,6 +80,7 @@ else:
 new_name = st.text_input("Legg til deltaker")
 if st.button("Legg til"):
     st.session_state.players[new_name] = 0
+
 
 
 
