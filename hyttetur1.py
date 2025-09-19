@@ -11,7 +11,7 @@ def connect_to_sheet(sheet_name: str):
     client = gspread.authorize(creds)
     return client.open(sheet_name).sheet1
 
-get_scores(connect_to_sheet);
+sheet = connect_to_sheet(scoreboard);
 
 # --- Init Session State ---
 if "players" not in st.session_state:
@@ -78,6 +78,7 @@ else:
 new_name = st.text_input("Legg til deltaker")
 if st.button("Legg til"):
     st.session_state.players[new_name] = 0
+
 
 
 
