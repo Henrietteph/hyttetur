@@ -1,6 +1,6 @@
 import streamlit as st
 """import gspread"""
-from oauth2client.service_account import ServiceAccountCredentials
+"""from oauth2client.service_account import ServiceAccountCredentials"""
 
 from sheets_utils import get_scores, add_score, update_score, delete_score
 
@@ -81,6 +81,7 @@ else:
 new_name = st.text_input("Legg til deltaker")
 if st.button("Legg til"):
     st.session_state.players[new_name] = 0
+
 
 
 
