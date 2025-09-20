@@ -24,7 +24,7 @@ if "players" not in st.session_state:
 
 if "agenda" not in st.session_state:
     st.session_state.agenda = {
-        "test" : sheet.row_values(1);
+        "test" : sheet.row_values(1)
         "Fredag": ["15:00 - Ankomst og apertiff", "15:30 - Romfordeling og Agenda", "16:00 - Pynte oss", "17:00 - Quiz", "18:00 - Middag", "20:00 - Skifte til chill", "20:30 - Mimeleik", "21:00 - Fritid"],
         "Lørdag": ["11:00 - Frokost og fyre i stampen", "12:30 - Spele kubb og/eller brettspill", "14:00 - Kortskalle og/eller anna hemmelig leik", "16:00 - Badestamp", "17:00 - Stelle seg", "18:00 - Middag", "19:30 - Ulike leika", "??:?? - Kåring av vinner🤴"],
         "Søndag": ["11:00 - Frokost", "12:30 - Pakke, rydde, vaske", "??:?? - Chill og avreise"]
@@ -84,6 +84,7 @@ else:
 new_name = st.text_input("Legg til deltaker")
 if st.button("Legg til"):
     st.session_state.players[new_name] = 0
+
 
 
 
