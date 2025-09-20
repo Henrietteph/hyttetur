@@ -8,7 +8,8 @@ def connect_to_sheet(sheet_name: str):
              "https://www.googleapis.com/auth/drive"]
 
     creds = ServiceAccountCredentials.from_json_keyfile_dict(
-        st.secrets["gcp_service_account"], scope
+        dict(st.secrets["gcp_service_account"]),
+        scope
     )
     client = gspread.authorize(creds)
     return client.open(sheet_name).sheet1
@@ -82,6 +83,7 @@ else:
 new_name = st.text_input("Legg til deltaker")
 if st.button("Legg til"):
     st.session_state.players[new_name] = 0
+
 
 
 
