@@ -8,7 +8,7 @@ def get_scores(sheet):
     return sheet.get_all_records()
 
 
-def add_score(sheet, name: str, score: int):
+def add_player(sheet, name: str, score: int):
     """Legger til en ny rad"""
     sheet.append_row([name, score])
 
@@ -17,7 +17,7 @@ def update_score(sheet, row_index: int, new_name: str, new_score: int):
     """
     Oppdaterer en rad i arket.
     row_index = radnummer (starter på 2 pga headers)
-    """
+    rad A fordi det er der navnene, nøklene, er lagret"""
     sheet.update(f"A{row_index}", [[new_name, new_score]])
 
 
