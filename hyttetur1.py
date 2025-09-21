@@ -65,7 +65,7 @@ sheet = connect_to_sheet(SHEET_NAME)
 st.title("🏆 Poengtavle")
 
 # Last inn spillere
-players = load_players(sheet)
+players = load_players_records(sheet)
 
 st.subheader("Alle spillere (fra get_all_records)")
 st.write(players)
@@ -99,6 +99,7 @@ else:
 new_name = st.text_input("Legg til deltaker")
 if st.button("Legg til"):
     st.session_state.players[new_name] = 0
+
 
 
 
