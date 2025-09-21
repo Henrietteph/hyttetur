@@ -68,7 +68,7 @@ st.title("🏆 Poengtavle")
 
 # Last inn spillere
 players = load_players_records(sheet)
-st.write(players)
+st.write(players[])
 
 # Eksempel: hent Kari hvis hun finnes
 if "Henriette" in players:
@@ -77,7 +77,7 @@ else:
     st.warning("Henriette finnes ikke i arket")
 
 # --- Vis poengtavle ---
-st.subheader("🏆 Poengtavle")
+st.title("🏆 Poengtavle")
 if not st.session_state.players:
     st.info("Ingen deltakere enda.")
 else:
@@ -99,28 +99,6 @@ else:
 new_name = st.text_input("Legg til deltaker")
 if st.button("Legg til"):
     st.session_state.players[new_name] = 0
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
