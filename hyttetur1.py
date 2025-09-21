@@ -1,6 +1,7 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import streamlit as st
+from backend import *
 
 # ---- Connect to Google Sheet ----
 def connect_to_sheet(sheet_name: str):
@@ -60,11 +61,6 @@ with col_sondag:
         st.write(f"• {item}")
 
 
-def load_players_records(sheet):
-    data = sheet.get_all_records()
-    players = {row["Navn"]: int(row["Poeng"]) for row in data}
-    return players
-
 SHEET_NAME = "Scoreboard"
 sheet = connect_to_sheet(SHEET_NAME)
 
@@ -72,8 +68,6 @@ st.title("🏆 Poengtavle")
 
 # Last inn spillere
 players = load_players_records(sheet)
-
-st.subheader("Alle spillere (fra get_all_records)")
 st.write(players)
 
 # Eksempel: hent Kari hvis hun finnes
@@ -105,6 +99,7 @@ else:
 new_name = st.text_input("Legg til deltaker")
 if st.button("Legg til"):
     st.session_state.players[new_name] = 0
+
 
 
 
