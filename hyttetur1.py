@@ -77,10 +77,10 @@ st.subheader("Alle spillere (fra get_all_records)")
 st.write(players)
 
 # Eksempel: hent Kari hvis hun finnes
-if "Henni" in players:
-    st.success(f"Henni har {players['Henni']} poeng")
+if "Henriette" in players:
+    st.success(f"Henriette har {players['Henriette']} poeng")
 else:
-    st.warning("Henni finnes ikke i arket")
+    st.warning("Henriette finnes ikke i arket")
 
 # --- Vis poengtavle ---
 st.subheader("🏆 Poengtavle")
@@ -105,6 +105,7 @@ else:
 new_name = st.text_input("Legg til deltaker")
 if st.button("Legg til"):
     st.session_state.players[new_name] = 0
+
 
 
 
