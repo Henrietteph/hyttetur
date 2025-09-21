@@ -1,3 +1,14 @@
+def connect_to_sheet(sheet_name: str):
+    scope = ["https://spreadsheets.google.com/feeds",
+             "https://www.googleapis.com/auth/drive"]
+
+    creds = ServiceAccountCredentials.from_json_keyfile_dict(
+        dict(st.secrets["gcp_service_account"]),
+        scope
+    )
+    client = gspread.authorize(creds)
+    return client.open(sheet_name).sheet1
+
 def load_players_records(sheet):
     data = sheet.get_all_records()
     players = {row["Navn"]: int(row["Poeng"]) for row in data}
