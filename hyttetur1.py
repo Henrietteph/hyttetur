@@ -59,6 +59,12 @@ with col_sondag:
     for item in st.session_state.agenda["Søndag"]:
         st.write(f"• {item}")
 
+
+def load_players_records(sheet):
+    data = sheet.get_all_records()
+    players = {row["Navn"]: int(row["Poeng"]) for row in data}
+    return players
+
 SHEET_NAME = "Scoreboard"
 sheet = connect_to_sheet(SHEET_NAME)
 
@@ -99,6 +105,7 @@ else:
 new_name = st.text_input("Legg til deltaker")
 if st.button("Legg til"):
     st.session_state.players[new_name] = 0
+
 
 
 
