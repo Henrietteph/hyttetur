@@ -17,9 +17,6 @@ def connect_to_sheet(sheet_name: str):
 # ---- App start ----
 SHEET_NAME = "Scoreboard"  # sett navnet på regnearket
 sheet = connect_to_sheet(SHEET_NAME)
-row2 = sheet.row_values(2)
-
-st.write("Andre rad:", row2)
 
 # --- Init Session State ---
 if "players" not in st.session_state:
@@ -61,7 +58,23 @@ with col_sondag:
     st.markdown("### Søndag")
     for item in st.session_state.agenda["Søndag"]:
         st.write(f"• {item}")
-        
+
+SHEET_NAME = "Scoreboard"
+sheet = connect_to_sheet(SHEET_NAME)
+
+st.title("🏆 Poengtavle")
+
+# Last inn spillere
+players = load_players(sheet)
+
+st.subheader("Alle spillere (fra get_all_records)")
+st.write(players)
+
+# Eksempel: hent Kari hvis hun finnes
+if "Henni" in players:
+    st.success(f"Henni har {players['Henni']} poeng")
+else:
+    st.warning("Henni finnes ikke i arket")
 
 # --- Vis poengtavle ---
 st.subheader("🏆 Poengtavle")
@@ -86,6 +99,7 @@ else:
 new_name = st.text_input("Legg til deltaker")
 if st.button("Legg til"):
     st.session_state.players[new_name] = 0
+
 
 
 
