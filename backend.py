@@ -1,3 +1,8 @@
+def load_players_records(sheet):
+    data = sheet.get_all_records()
+    players = {row["Navn"]: int(row["Poeng"]) for row in data}
+    return players
+
 def get_scores(sheet):
     """Henter alle rader som liste av dicts"""
     return sheet.get_all_records()
